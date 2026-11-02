@@ -1,0 +1,14 @@
+{
+  "info": {"name":"Food Delivery & Logistics API","schema":"https://schema.getpostman.com/json/collection/v2.1.0/collection.json"},
+  "variable":[{"key":"base_url","value":"http://127.0.0.1:8000"},{"key":"token","value":""}],
+  "item":[
+    {"name":"Health","request":{"method":"GET","url":"{{base_url}}/health"}},
+    {"name":"Register","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"full_name\": \"Demo Customer\",\n  \"email\": \"demo@example.com\",\n  \"password\": \"SecurePass123\"\n}"},"url":"{{base_url}}/auth/register"}},
+    {"name":"Login","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/x-www-form-urlencoded"}],"body":{"mode":"urlencoded","urlencoded":[{"key":"username","value":"demo@example.com"},{"key":"password","value":"SecurePass123"}]},"url":"{{base_url}}/auth/login"}},
+    {"name":"Current user","request":{"method":"GET","header":[{"key":"Authorization","value":"Bearer {{token}}"}],"url":"{{base_url}}/auth/me"}},
+    {"name":"List restaurants","request":{"method":"GET","url":"{{base_url}}/restaurants?page=1&limit=20"}},
+    {"name":"List products","request":{"method":"GET","url":"{{base_url}}/products?page=1&limit=20"}},
+    {"name":"Current cart","request":{"method":"GET","header":[{"key":"Authorization","value":"Bearer {{token}}"}],"url":"{{base_url}}/cart"}},
+    {"name":"Create order","request":{"method":"POST","header":[{"key":"Authorization","value":"Bearer {{token}}","type":"text"},{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"notes\": \"Please call on arrival\"\n}"},"url":"{{base_url}}/orders"}}
+  ]
+}
